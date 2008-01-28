@@ -1,9 +1,16 @@
 <configure
     xmlns="http://namespaces.zope.org/zope"
     xmlns:browser="http://namespaces.zope.org/browser"
+    xmlns:cmf="http://namespaces.zope.org/cmf"
     >
 
     <include file="profiles.zcml" />
+
+    <cmf:registerDirectory
+        name="skins"
+        directory="skins"
+        recursive="True"
+        />
 
     <interface
         interface=".interfaces.IThemeSpecific"
