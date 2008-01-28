@@ -3,14 +3,9 @@
 #
 
 import os, sys
-if __name__ == '__main__':
-    execfile(os.path.join(sys.path[0], 'framework.py'))
 
 from Products.PloneTestCase import PloneTestCase
 
-# CHANGE 'NuPlone' to your product name in the following lines
-from Products.NuPlone.config import *
-from Products.NuPlone.Extensions.utils import getSkinsFolderNames
 PROJECTNAME = 'NuPlone'
 
 PloneTestCase.installProduct(PROJECTNAME)
