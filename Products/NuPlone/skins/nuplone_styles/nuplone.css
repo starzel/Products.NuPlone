@@ -1384,44 +1384,44 @@ h3 a:hover {
 	font-size: 1.1em;
 }
 
-#content a {
+#region-content a {
 	/*border-bottom: 1px solid #5a9bc6;*/
 }
 
-#content a:hover {
+#region-content a:hover {
 	text-decoration: underline;
 }
 
-#content a:visited {
+#region-content a:visited {
 	color: #427597;
 }
-#content a:visited:hover {
+#region-content a:visited:hover {
 	color: Black;
 }
-#content a:target {
+#region-content a:target {
 	background-color: #fd7 !important;
 }
-#content ul {
+#region-content ul {
 	list-style-type: disc;
 	margin-left: 2em;
 }
 
-#content ol {
+#region-content ol {
 	list-style-type: decimal;
 	margin-left: 2em;
 }
 
-#content li {
+#region-content li {
 	margin-bottom: 0.25em;
 	line-height: 1.5em;
 	display: list-item;
 }
 
-#content dl dt {
+#region-content dl dt {
 	font-weight: bold;
 }
 
-#content div.documentByLine {
+#region-content div.documentByLine {
 	border-top: 1px solid gray;
 	margin-bottom: 10px;
 	font-size: 11px;
@@ -1430,22 +1430,22 @@ h3 a:hover {
 	color: gray;
 }
 
-#content p.tileBody,
+#region-content p.tileBody,
 #portal-column-content titleFooter {
 	display: inline;
 	clear: none;
 }
 
-#content .discreet {
+#region-content .discreet {
 	color: #666;
 	font-size: 11px;
 }
 
-#content .visualHighlight {
+#region-content .visualHighlight {
     background-color: #ffc;
 }
 
-#content .pullquote {
+#region-content .pullquote {
     padding: 0 1em 0 1em;
     margin: 0 0 1em 1em;
     font-weight: bold;
@@ -1455,7 +1455,7 @@ h3 a:hover {
     border-left: 1px solid #888;
 	color: #888;
 }
-#content .callout {
+#region-content .callout {
 	font-variant:  small-caps;
     color: #888;
     padding: 1em;
@@ -1465,12 +1465,12 @@ h3 a:hover {
 }
 
 
-#content table {
+#region-content table {
 	width: 100%;
 	text-align: left;
 }
 
-#content p.documentDescription {
+#region-content p.documentDescription {
 	font-weight: bold;
 	color: gray;
 	font-size: 1em;
