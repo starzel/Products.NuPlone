@@ -785,7 +785,7 @@ dl.toc dd ol {
 	float: left;
 	padding-top: 10px;
 	padding-bottom: 35px;
-	background: url(body.gif) repeat-y;
+	background: url(body-ltr.gif) repeat-y;
 	position: relative;
 	padding-right: 10px;
 }

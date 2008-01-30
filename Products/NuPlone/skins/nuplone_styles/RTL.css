@@ -39,7 +39,7 @@ body {
 
 #portal-header {
 	float: right;
-	background: url(body.gif) repeat-y right 0;
+	background: url(body-rtl.gif) repeat-y right 0;
 	padding-left: 10px;
 	padding-right: 0;
 	position: static;
@@ -47,7 +47,7 @@ body {
 
 .narrow #portal-header {
 	float: left;
-	background: url(body.gif) repeat-y right 0;
+	background: url(body-rtl.gif) repeat-y right 0;
 	padding-left: 0px;
 	padding-right: 0;
 }
