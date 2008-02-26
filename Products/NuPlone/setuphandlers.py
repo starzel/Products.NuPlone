@@ -36,5 +36,4 @@ def importVarious(context):
     out = StringIO()
 
     addSearchPortlet(site, out)
-    # tomster: disabling the language portlet, as it currently produces a SiteError!
-    #addLanguagePortlet(site, out)
+    addLanguagePortlet(site, out)
