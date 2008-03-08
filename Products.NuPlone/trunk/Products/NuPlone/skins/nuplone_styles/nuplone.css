@@ -1879,7 +1879,9 @@ body.smallText { font-size: 60%; }
 }
 
 .documentContent div#review-history dl {
-	background-color:#5A9BC6;	color:white;	margin:1em 0pt 0pt;
+	background-color:#5A9BC6;
+	color:white;
+	margin:1em 0pt 0pt;
     border: none;
 	padding: 0;
 	width: 450px;
@@ -1977,7 +1979,8 @@ body.smallText { font-size: 60%; }
 }
 
 #reviewHistory table.listing {
-	margin:1em 1em 1.5em;	width:420px;	
+	margin:1em 1em 1.5em;
+	width:420px;	
 	background: none transparent !important;
 }
 
@@ -2036,6 +2039,24 @@ body.smallText { font-size: 60%; }
 	margin-top: -1px;
 }
 
+/* @group Portlet static content */
 
+.portletStaticText ul {
+	list-style-type: disc;
+	margin-left: 2em;
+}
+
+.portletStaticText ol {
+	list-style-type: decimal;
+	margin-left: 2.5em;
+}
+
+.portletStaticText li {
+	margin-bottom: 0.25em;
+	line-height: 1.5em;
+	display: list-item;
+}
+
+/* @end */
 
 /* @end */
