@@ -9,7 +9,7 @@ NuPlone is a new theme for Plone 3.0 made by
 `Alexander Limi`_
   Plone integration, additional CSS work, usability guidance.
 
-.. _Cornelis Kolbach: http://www.cornae.org
+.. _Cornelis Kolbach: http://cornae.org
 .. _Alexander Limi: http://limi.net
 
 
