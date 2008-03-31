@@ -1403,8 +1403,9 @@ h3 a:hover {
 }
 
 #region-content img {
-	max-width: 450px;
+	max-width: 100%;
 }
+
 #region-content ul {
 	list-style-type: disc;
 	margin-left: 2em;
