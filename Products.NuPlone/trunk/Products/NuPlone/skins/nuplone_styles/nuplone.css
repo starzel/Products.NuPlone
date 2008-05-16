@@ -1878,12 +1878,14 @@ body.smallText { font-size: 60%; }
 
 
 
-.documentContent div#review-history {
+.documentContent div#review-history,
+.documentContent div#content-history {
 	float: left;
 	width: 450px;
 }
 
-.documentContent div#review-history dl {
+.documentContent div#review-history dl,
+.documentContent div#content-history dl {
 	background-color:#5A9BC6;
 	color:white;
 	margin:1em 0pt 0pt;
@@ -1892,50 +1894,59 @@ body.smallText { font-size: 60%; }
 	width: 450px;
 }
 
-.documentContent div#review-history dl.expandedInlineCollapsible {
+.documentContent div#review-history dl.expandedInlineCollapsible,
+.documentContent div#content-history dl.expandedInlineCollapsible {
 	padding-bottom: 15px;
 }
 
 
-.documentContent div#review-history dl dt {
+.documentContent div#review-history dl dt,
+.documentContent div#content-history dl dt {
 	height: 12px;
 	cursor:pointer;
 	padding: 10px 10px 14px 25px;
 	text-transform: uppercase;
 }
 
-.documentContent div#review-history dl.collapsedInlineCollapsible dt.collapsibleHeader {
+.documentContent div#review-history dl.collapsedInlineCollapsible dt.collapsibleHeader,
+.documentContent div#content-history dl.collapsedInlineCollapsible dt.collapsibleHeader {
 	background: transparent url(twistie-closed.gif) no-repeat scroll 9px center;
 	color: white;
 }
 
-.documentContent div#review-history dl.expandedInlineCollapsible dt.collapsibleHeader {
+.documentContent div#review-history dl.expandedInlineCollapsible dt.collapsibleHeader,
+.documentContent div#content-history dl.expandedInlineCollapsible dt.collapsibleHeader {
 	background: transparent url(twistie-open.gif) no-repeat scroll 8px center;
 	color: white;
 }
 
-.documentContent div#review-history dl.collapsedInlineCollapsible dd {
+.documentContent div#review-history dl.collapsedInlineCollapsible dd,
+.documentContent div#content-history dl.collapsedInlineCollapsible dd {
 	display: none;
 	padding: 0;
 	margin: 0;
 }
 
-.documentContent div#review-history dl.expandedInlineCollapsible dd {
+.documentContent div#review-history dl.expandedInlineCollapsible dd,
+.documentContent div#content-history dl.expandedInlineCollapsible dd {
 	display: block;
 	margin:1em 0.5em 0.5em;
 }
 
-.documentContent div#review-history dl dd p {
+.documentContent div#review-history dl dd p,
+.documentContent div#content-history dl dd p {
 	color: white;
 	margin: 0 20px 15px;
 }
 
-.documentContent div#review-history dl dd a {
+.documentContent div#review-history dl dd a,
+.documentContent div#content-history dl dd a {
 	color: white;
 	text-decoration: none;
 }
 
-#review-history table.listing {
+#review-history table.listing,
+#content-history table.listing {
 	margin: 0 8px 15px;
 	border-collapse: collapse;
 	width: 420px;
@@ -1943,22 +1954,26 @@ body.smallText { font-size: 60%; }
 	font-size: 0.95em;
 }
 
-#review-history table.listing tr {
+#review-history table.listing tr,
+#content-history table.listing tr {
 	background-color: transparent !important;
 	
 	
 }
 
-#review-history table.listing tr td,.documentContent div#review-history table.listing tr th {
+#review-history table.listing tr td,.documentContent div#review-history table.listing tr th,
+#content-history table.listing tr td,.documentContent div#content-history table.listing tr th {
 	color: white;
 }
 
-#review-history table.listing tr:hover {
+#review-history table.listing tr:hover,
+#content-history table.listing tr:hover {
 	background-color: inherit ! important;
 }
 
 
-#review-history table.listing td {
+#review-history table.listing td,
+#content-history table.listing td {
 	border-top: 1px dotted white;
 	text-align: left;
 	vertical-align: text-top;
@@ -1971,7 +1986,8 @@ body.smallText { font-size: 60%; }
 	border-left-style: none;
 }
 
-#review-history table.listing th {
+#review-history table.listing th,
+#content-history table.listing th {
 	text-align:left;
 	font-weight: bold;
 	vertical-align: text-top;
@@ -1983,7 +1999,8 @@ body.smallText { font-size: 60%; }
 	background-image: none;
 }
 
-#reviewHistory table.listing {
+#reviewHistory table.listing,
+#contentHistory table.listing {
 	margin:1em 1em 1.5em;
 	width:420px;	
 	background: none transparent !important;
