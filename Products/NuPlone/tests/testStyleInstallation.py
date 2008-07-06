@@ -28,7 +28,7 @@ class testInstall(PloneTestCase.PloneTestCase):
 
     def testCustomCSSAdded(self):
         """Check that a list of CSS files have been added"""
-        cssfiles = [] # Examples are ["++resource++plonetheme.example/test.css"]
+        cssfiles = ["nuplone.css"] # Examples are ["++resource++plonetheme.example/test.css"]
         for resource in self.csstool.getResources():
             try:
                 cssfiles.remove(resource.getId())
@@ -59,7 +59,7 @@ class testUninstall(PloneTestCase.PloneTestCase):
 
     def testCustomCSSRemoved(self):
         """Check that a list of CSS files have been removed"""
-        cssfiles = [] # Examples are ["++resource++plonetheme.example/test.css"]
+        cssfiles = ["nuplone.css"] # Examples are ["++resource++plonetheme.example/test.css"]
         for resource in self.csstool.getResources():
             self.failIf(resource.getId() in cssfiles)
 
