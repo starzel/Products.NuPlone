@@ -4,6 +4,9 @@ Changelog
 1.0 - unreleased
 ----------------
 
+- Added uninstall profile and hooked to GS
+  [MatthewWilkes]
+
 - Removed DIYPloneStyle tests as they were almost all broken.  Now tests 
   install, CSS and JS entries, and uninstall, but not modifications to default
   views, etc.  This is no loss as these tests didn't work anyway, as they 
