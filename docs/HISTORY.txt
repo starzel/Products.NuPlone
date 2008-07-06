@@ -4,6 +4,11 @@ Changelog
 1.0 - unreleased
 ----------------
 
+- Removed DIYPloneStyle tests as they were almost all broken.  Now tests 
+  install, CSS and JS entries, and uninstall, but not modifications to default
+  views, etc.  This is no loss as these tests didn't work anyway, as they 
+  assumed a non-GS installation style.
+  [MatthewWilkes]
 
 1.0b2 - April 21, 2008
 ----------------------

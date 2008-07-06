@@ -5,207 +5,89 @@
 import os, sys
 
 from Products.PloneTestCase import PloneTestCase
+from Products.CMFCore.utils import getToolByName
 
-PROJECTNAME = 'NuPlone'
+PloneTestCase.installProduct("NuPlone")
+PloneTestCase.setupPloneSite(products=["NuPlone"])
 
-PloneTestCase.installProduct(PROJECTNAME)
-PloneTestCase.setupPloneSite(products=[PROJECTNAME])
-
-class testSkinsTool(PloneTestCase.PloneTestCase):
+class testInstall(PloneTestCase.PloneTestCase):
 
     def afterSetUp(self):
-        self.tool = getattr(self.portal, 'portal_skins')
+        """ Grab the skins, css and js tools """
+        self.jstool = getToolByName(self.portal, 'portal_javascripts')
+        self.csstool = getToolByName(self.portal, 'portal_css')
+        self.skinstool = getToolByName(self.portal, 'portal_skins')
 
     def testSkinSelectionCreated(self):
-        """Test if a new skin exists in portal_skins."""
-        for skin_selection in SKINSELECTIONS:
-            self.failUnless(
-                skin_selection['name'] in self.tool.getSkinSelections())
-
-    def testSkinPaths(self):
-        """Test if the skin layers in the new skin were correctly added."""
-        skinsfoldernames = getSkinsFolderNames(GLOBALS)
-        skins_dict = {}
-        for skin in SKINSELECTIONS:
-            skins_dict[skin['name']] = skin.get('layers', skinsfoldernames)
-        for selection, layers in self.tool.getSkinPaths():
-            if skins_dict.has_key(selection):
-                for specific_layer in skins_dict[selection]:
-                    self.failUnless(specific_layer in layers)
-            else:
-                for foldername in skinsfoldernames:
-                    self.failIf(foldername in layers)
-
+        """ Check if the new skin is in portal_skins. """
+        self.failUnless("NuPlone" in self.skinstool.getSkinSelections())
+    
     def testSkinSelection(self):
-        """Test if the new skin was selected as default one."""
-        if SELECTSKIN:
-            self.assertEqual(self.tool.getDefaultSkin(), DEFAULTSKIN)
+        """ Check if the new skin has been set as the default. """
+        self.assertEqual(self.skinstool.getDefaultSkin(), "NuPlone")
 
-    def testSkinFlexibility(self):
-        """Test if the users can choose their skin."""
-        self.assertEqual(self.tool.getAllowAny(), ALLOWSELECTION)
+    def testCustomCSSAdded(self):
+        """Check that a list of CSS files have been added"""
+        cssfiles = [] # Examples are ["++resource++plonetheme.example/test.css"]
+        for resource in self.csstool.getResources():
+            try:
+                cssfiles.remove(resource.getId())
+            except ValueError:
+                pass
+        self.failUnless(len(cssfiles) == 0)
+            
 
-    def testCookiePersistance(self):
-        """Test if the skin choice is peristant between sessions."""
-        self.assertEqual(bool(self.tool.getCookiePersistence()),
-                                                        PERSISTENTCOOKIE)
-
-class testResourceRegistrations(PloneTestCase.PloneTestCase):
-
-    def afterSetUp(self):
-        self.qitool      = getattr(self.portal, 'portal_quickinstaller')
-        self.csstool     = getattr(self.portal, 'portal_css')
-        self.jstool      = getattr(self.portal, 'portal_javascripts')
-        product_settings = getattr(self.qitool, PROJECTNAME)
-        self.stylesheets = product_settings.resources_css
-        self.javascripts = product_settings.resources_js
-
-    def testStylesheetsInstalled(self):
-        """Test if new stylesheets were added to portal_css."""
-        stylesheetids = self.csstool.getResourceIds()
-        for css in STYLESHEETS:
-            self.failUnless(css['id'] in stylesheetids)
-
-    def testStylesheetProperties(self):
-        """Test if new stylesheets have correct parameters."""
-        for config in STYLESHEETS:
-            res = self.csstool.getResource(config['id'])
-            for key in [key for key in config.keys() if key != 'id']:
-                self.assertEqual(res._data[key], config[key])
-
-    def testStylesheetsUpdated(self):
-        """Test if existing stylesheets were correctly updated."""
-        for config in [c for c in STYLESHEETS
-                       if c['id'] not in self.stylesheets]:
-            resource = self.csstool.getResource(config['id'])
-            for key in [k for k in config.keys() if k != 'id']:
-                self.failUnless(resource._data.has_key('original_'+key))
-
-    def testJavascriptsInstalled(self):
-        """Test if new javascripts were added to portal_javascripts."""
-        javascriptids = self.jstool.getResourceIds()
-        for js in JAVASCRIPTS:
-            self.failUnless(js['id'] in javascriptids)
-
-    def testMemberStylesheetProperties(self):
-        """Test if new javascripts have correct parameters."""
-        for config in JAVASCRIPTS:
-            res = self.jstool.getResource(config['id'])
-            for key in [key for key in config.keys() if key != 'id']:
-                self.assertEqual(res._data[key], config[key])
-
-    def testJavascriptsUpdated(self):
-        """Test if existing javascripts were correctly updated."""
-        for config in [c for c in JAVASCRIPTS
-                       if c['id'] not in self.javascripts]:
-            resource = self.jstool.getResource(config['id'])
-            for key in [k for k in config.keys() if k != 'id']:
-                self.failUnless(resource._data.has_key('original_'+key))
-
-class testDisplayViewsRegistration(PloneTestCase.PloneTestCase):
-
-    def afterSetUp(self):
-        self.ttool = getattr(self.portal, 'portal_types')
-
-    def testDisplayViewsRegistered(self):
-        """Test if additional display views were added to specified types."""
-        if DISPLAY_VIEWS:
-            for pt, views in DISPLAY_VIEWS.items():
-                FTI = getattr(self.ttool, pt)
-                registered_views = FTI.view_methods
-                for view in views:
-                    self.failUnless(view in registered_views)
-
+    def testCustomJSAdded(self):
+        """Check that a list of JS files have been added"""
+        jsfiles = ["multi-resolution.js"] # Examples are ["++resource++plonetheme.example/test.css"]
+        for resource in self.jstool.getResources():
+            try:
+                jsfiles.remove(resource.getId())
+            except ValueError:
+                pass
+        self.failUnless(len(jsfiles) == 0)
 
 class testUninstall(PloneTestCase.PloneTestCase):
 
     def afterSetUp(self):
-        """Test if ."""
-        self.qitool      = getattr(self.portal, 'portal_quickinstaller')
-        self.skinstool   = getattr(self.portal, 'portal_skins')
-        self.csstool     = getattr(self.portal, 'portal_css')
-        self.jstool      = getattr(self.portal, 'portal_javascripts')
-        product_settings = getattr(self.qitool, PROJECTNAME)
-        self.stylesheets = product_settings.resources_css
-        self.javascripts = product_settings.resources_js
-        self.qitool.uninstallProducts(products=[PROJECTNAME])
-        self.ttool = getattr(self.portal, 'portal_types')
+        """ Grab the skins, css and js tools and uninstall NuPlone. """
+        self.skinstool = getToolByName(self.portal, 'portal_skins')
+        self.jstool = getToolByName(self.portal, 'portal_javascripts')
+        self.csstool = getToolByName(self.portal, 'portal_css')
+        self.qitool = getToolByName(self.portal, 'portal_quickinstaller')
+        self.qitool.uninstallProducts(products=["NuPlone"])
+
+    def testCustomCSSRemoved(self):
+        """Check that a list of CSS files have been removed"""
+        cssfiles = [] # Examples are ["++resource++plonetheme.example/test.css"]
+        for resource in self.csstool.getResources():
+            self.failIf(resource.getId() in cssfiles)
+
+    def testCustomJSRemoved(self):
+        """Check that a list of JS files have been removed"""
+        jsfiles = ["multi-resolution.js"] # Examples are ["++resource++plonetheme.example/test.css"]
+        for resource in self.jstool.getResources():
+            self.failIf(resource.getId() in jsfiles)
 
     def testProductUninstalled(self):
         """Test if the product was uninstalled."""
-        self.failIf(self.qitool.isProductInstalled(PROJECTNAME))
+        self.failIf(self.qitool.isProductInstalled("NuPlone"))
 
     def testSkinSelectionDeleted(self):
         """Test if the skin selection was removed from portal_skins."""
         skin_selections = self.skinstool.getSkinSelections()
-        for skin in SKINSELECTIONS:
-            self.failIf(skin['name'] in skin_selections)
-
+        self.failIf("NuPlone" in skin_selections)
+    
+    def testNoPathsRemain(self):
+        """Checks that all directory views in portal_skins do not depend on this product"""
+        for directory in self.skinstool.objectValues():
+            self.failIf(directory.getDirPath().startswith("Products.NuPlone:"))
+        
     def testDefaultSkinChanged(self):
-        """Test if default skin is back to old value or default Plone."""
+        """Test if default skin is no longer NuPlone"""
         default_skin = self.skinstool.getDefaultSkin()
-        if RESETSKINTOOL:
-            self.assertEqual(default_skin, 'Plone Default')
-        else:
-            if DEFAULTSKIN:
-                for skin in SKINSELECTIONS:
-                    if skin['name'] == DEFAULTSKIN:
-                        self.assertEqual(default_skin, skin['base'])
-            else:
-                self.assertEqual(default_skin, SKINSELECTIONS[0]['base'])
+        self.failUnless(default_skin != 'NuPlone')
 
-    def testResetSkinFlexibility(self):
-        """Test if the users still can choose their skin."""
-        allow_any = self.skinstool.getAllowAny()
-        if RESETSKINTOOL:
-            self.failIf(allow_any)
-        else:
-            self.assertEqual(allow_any, ALLOWSELECTION)
-
-    def testResetCookiePersistance(self):
-        """Test if the skin choice is still peristant between sessions."""
-        cookie_peristence = self.skinstool.getCookiePersistence()
-        if RESETSKINTOOL:
-            self.failIf(cookie_peristence)
-        else:
-            self.assertEqual(cookie_peristence, PERSISTENTCOOKIE)
-
-    def testStylesheetsUninstalled(self):
-        """Test if added stylesheets were removed from portal_css."""
-        resourceids = self.csstool.getResourceIds()
-        for css in self.stylesheets:
-            self.failIf(css in resourceids)
-
-    def testResetDefaultStylesheets(self):
-        """Test if values were reverted in existing stylesheets."""
-        for config in [c for c in STYLESHEETS
-                       if c['id'] not in self.stylesheets]:
-            resource = self.csstool.getResource(config['id'])
-            for key in [k for k in config.keys() if k != 'id']:
-                self.failIf(resource._data.has_key('original_'+key))
-
-    def testJavascriptsUninstalled(self):
-        """Test if added javascripts were removed from portal_js."""
-        resourceids = self.jstool.getResourceIds()
-        for js in self.javascripts:
-            self.failIf(js in resourceids)
-
-    def testResetDefaultJavascripts(self):
-        """Test if values were reverted in existing javascripts."""
-        for config in [c for c in JAVASCRIPTS
-                       if c['id'] not in self.javascripts]:
-            resource = self.jstool.getResource(config['id'])
-            for key in [k for k in config.keys() if k != 'id']:
-                self.failIf(resource._data.has_key('original_'+key))
-
-    def testDisplayViewsUnregistered(self):
-        """Make sure additional Display Views were removed"""
-        if DISPLAY_VIEWS:
-            for pt, views in DISPLAY_VIEWS.items():
-                FTI = getattr(self.ttool, pt)
-                registered_views = FTI.view_methods
-                for view in views:
-                    self.failIf(view in registered_views)
 
 if __name__ == '__main__':
     framework()
@@ -213,8 +95,6 @@ else:
     import unittest
     def test_suite():
         suite = unittest.TestSuite()
-        suite.addTest(unittest.makeSuite(testSkinsTool))
-        suite.addTest(unittest.makeSuite(testResourceRegistrations))
-        suite.addTest(unittest.makeSuite(testDisplayViewsRegistration))
+        suite.addTest(unittest.makeSuite(testInstall))
         suite.addTest(unittest.makeSuite(testUninstall))
         return suite
