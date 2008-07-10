@@ -4,6 +4,9 @@ Changelog
 1.0 - unreleased
 ----------------
 
+- Added missing metadata.xml to uninstall profile.
+  [hannosch]
+
 - Added uninstall profile and hooked to GS
   [MatthewWilkes]
 
