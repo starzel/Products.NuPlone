@@ -2018,16 +2018,18 @@ body.smallText { font-size: 60%; }
 
 /* @group Form Controls */
 
-#region-content .formControls {
+#content .formControls {
 	margin-top: 10px;
 	padding-top: 10px;
-	border-top: 1px solid gray;
 }
 
-#region-content .formControls buttton,#region-content .formControls input {
+#content .formControls buttton,#region-content .formControls input {
 	margin-right: 10px;
 	cursor: pointer;
+}
 	
+/* Uncomment if you want the non-native look for buttons.
+#content .formControls buttton,#region-content .formControls input {
 	-moz-border-radius: 1em;
 	-webkit-border-radius: 1em;
 	padding: 1px 20px;
@@ -2038,11 +2040,10 @@ body.smallText { font-size: 60%; }
 	line-height: 1.8em;
 }
 
-#region-content .formControls buttton:hover,#region-content .formControls input:hover {
+#content .formControls buttton:hover,#region-content .formControls input:hover {
 	background-color: #666;	
 }
-
-
+*/
 
 /* @end */
 
