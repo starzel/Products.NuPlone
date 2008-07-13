@@ -2023,7 +2023,8 @@ body.smallText { font-size: 60%; }
 	padding-top: 10px;
 }
 
-#content .formControls buttton,#region-content .formControls input {
+#content .formControls button,
+#content .formControls input {
 	margin-right: 10px;
 	cursor: pointer;
 }
