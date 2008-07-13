@@ -1368,20 +1368,20 @@ h3 a:hover {
 	padding-bottom: 40px;
 }
 
-#region-content {
+#content {
 	line-height: 1.5em;
 }
 
-#region-content p,
-#region-content ul,
-#region-content ol,
-#region-content table,
-#region-content dl {
+#content p,
+#content ul,
+#content ol,
+#content table,
+#content dl {
 	margin-top: 0;
 	margin-bottom: 1em;
 	line-height: 1.5em;
 	color: black;
-	font-size: 1.1em;
+	font-size: 13px;
 }
 
 #content a {
