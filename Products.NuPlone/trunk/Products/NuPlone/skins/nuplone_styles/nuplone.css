@@ -1674,7 +1674,13 @@ html.kupu-html body {
 	background: none;
 	font-size: 80%;
 }
-
+.kupu-tb {
+	border: 1px solid #888;
+	background-color: #eee;
+}
+.kupu-tb button {
+	border-color: #eee;
+}
 html.kupu-html body.documentContent {
 	padding: 0 !important;
 }
