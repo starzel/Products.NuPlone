@@ -1611,8 +1611,10 @@ dl.error dd {
     background-color: #fdc; 
     border-color:  #d00;
 }
-
-
+/* From AT or KSS error indicator, shown in forms */
+div.fieldErrorBox {
+    color: #d00;
+}
 
 /* @end */
 
