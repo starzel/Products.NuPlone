@@ -26,6 +26,6 @@ setup(name='Products.NuPlone',
       install_requires=[
           'setuptools',
           'plone.theme',
-          'Products.CMFPlone',
+          'Plone',
       ],
       )
