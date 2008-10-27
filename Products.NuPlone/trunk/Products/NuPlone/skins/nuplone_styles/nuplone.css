@@ -468,38 +468,38 @@ dl.portletNavigationTree dd a:hover {
 	background-color: #7dabcf !important;
 }
 
-ul.portletNavigationTree li {
+dl.portletNavigationTree li {
 	display: block;
 }
 
-ul.portletNavigationTree li a {
+dl.portletNavigationTree li a {
 	width: auto;
 	font-size: 11px;
 	line-height: 15px;
 }
 
-ul.portletNavigationTree li a span {
+dl.portletNavigationTree li a span {
 	display: block;
 	padding: 4px 6px 4px 0;
 	background: url(edgeColour.gif) repeat-y right;
 }
 
-ul.portletNavigationTree li a img {
+dl.portletNavigationTree li a img {
 	margin-top: 2px;
 	margin-left: -19px;
 	float: left;
 }
-ul.portletNavigationTree .navTreeCurrentItem {
+dl.portletNavigationTree .navTreeCurrentItem {
 	background-color: #bfbfbf;
 	display: block;
 }
 
-ul.portletNavigationTree li.navTreeItemInPath {
+dl.portletNavigationTree li.navTreeItemInPath {
 	background-color: #ebebeb;
 	display: block;
 }
 
-ul.portletNavigationTree li a.navTreeCurrentItem span {
+dl.portletNavigationTree li a.navTreeCurrentItem span {
 	background: url(currentNav.gif) no-repeat right center !important;
 	color: black !important;
 }
