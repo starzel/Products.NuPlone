@@ -36,7 +36,13 @@ class testInstall(PloneTestCase.PloneTestCase):
                 pass
         self.failUnless(len(cssfiles) == 0)
             
-
+    def testRTLShouldHaveHigherPrecedence(self):
+        installedStylesheetIds = self.csstool.getResourceIds()
+        indexRTLStylesheet = self.csstool.getResourcePosition('RTL.css')
+        comes_before = ['nuplone.css',]
+        for cb in comes_before:
+            self.failUnless(cb in installedStylesheetIds[:indexRTLStylesheet], cb)
+        
     def testCustomJSAdded(self):
         """Check that a list of JS files have been added"""
         jsfiles = ["multi-resolution.js"] # Examples are ["++resource++plonetheme.example/test.css"]
