@@ -16,6 +16,12 @@ Changelog
   assumed a non-GS installation style.
   [MatthewWilkes]
 
+- Installed nuplone.css with lower precedence than RTL.css after inserting
+  RTL.css before ploneCustom.css.  Added test to check for RTL.css
+  precendence over nuplone.css.
+  Closes http://dev.plone.org/plone/ticket/7177
+  [emanlove]
+
 1.0b2 - April 21, 2008
 ----------------------
 
