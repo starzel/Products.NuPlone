@@ -204,3 +204,9 @@ ul.portletNavigationTree li a.navTreeCurrentItem {
 .narrow dl.portletCalendar table th {
 	font-size: 9px;
 }
+
+/* Status messages */
+dl.portalMessage dt {
+    float: right;
+    margin: 0pt 0pt 0pt 0.5em;
+}
