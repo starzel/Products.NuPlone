@@ -22,6 +22,10 @@ Changelog
   Closes http://dev.plone.org/plone/ticket/7177
   [emanlove]
 
+- Moved info bar on portal message to the right for RTL.
+  Closes http://dev.plone.org/plone/ticket/8140
+  [emanlove]
+
 1.0b2 - April 21, 2008
 ----------------------
 
