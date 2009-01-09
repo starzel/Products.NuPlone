@@ -4,6 +4,10 @@ Changelog
 1.0 - unreleased
 ----------------
 
+- Put in workaround for IE6 background caching problem, closes
+  https://dev.plone.org/plone/ticket/7445, thanks cwainwright
+  [calvinhp]
+
 - Added missing metadata.xml to uninstall profile.
   [hannosch]
 
