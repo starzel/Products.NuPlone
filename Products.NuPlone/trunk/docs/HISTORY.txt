@@ -1,8 +1,8 @@
 Changelog 
 =========
 
-1.0 - unreleased
-----------------
+1.0b3 - January 12, 2008
+------------------------
 
 - Put in workaround for IE6 background caching problem, closes
   https://dev.plone.org/plone/ticket/7445, thanks cwainwright
