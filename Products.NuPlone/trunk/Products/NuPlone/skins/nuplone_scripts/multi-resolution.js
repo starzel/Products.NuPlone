@@ -10,7 +10,7 @@ registerPloneFunction(function() {
     } else {
       return;
     }
-    if (frameWidth < 1014) {
+    if (frameWidth < 1025) {
       addClassName(document.body, 'narrow');
       removeClassName(document.body, 'medium');
       removeClassName(document.body, 'wide');

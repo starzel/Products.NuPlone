@@ -4,9 +4,13 @@ Changelog
 1.0b3 - January 12, 2008
 ------------------------
 
+- Fixed personal bar actions positioning in IE7, closes
+  http://dev.plone.org/plone/ticket/8483
+  [cwainwright, calvinhp]
+
 - Put in workaround for IE6 background caching problem, closes
-  https://dev.plone.org/plone/ticket/7445, thanks cwainwright
-  [calvinhp]
+  http://dev.plone.org/plone/ticket/7445
+  [cwainwright, calvinhp]
 
 - Added missing metadata.xml to uninstall profile.
   [hannosch]
