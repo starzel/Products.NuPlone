@@ -21,5 +21,6 @@
      insert-after="nuplone_images"/>
   <layer name="nuplone_scripts"
      insert-after="nuplone_templates"/>
+  <layer name="classic_styles" />
  </skin-path>
 </object>
