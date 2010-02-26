@@ -36,4 +36,4 @@ def importVarious(context):
     out = StringIO()
 
     addSearchPortlet(site, out)
-    addLanguagePortlet(site, out)
+ #   addLanguagePortlet(site, out)

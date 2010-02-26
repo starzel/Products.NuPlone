@@ -1895,7 +1895,7 @@ body.smallText { font-size: 60%; }
 .documentContent div#review-history dl,
 .documentContent div#content-history dl {
 	background-color:#5A9BC6;
-	color:white;
+    min-height:24px;
 	margin:1em 0pt 0pt;
     border: none;
 	padding: 0;
@@ -2160,4 +2160,74 @@ body.smallText { font-size: 60%; }
     margin: 5em 0 0.5em 0.5em;
     border: 1px solid black;
 }
+/* @group overlays */
+
+/* styling for overlays (popups) */
+
+div.overlay {
+    width: auto;
+    height: auto;
+    /* initially overlay is hidden */
+    display:none;
+    /* some padding to layout nested elements nicely  */
+    margin:1em;
+	font-size: 80%;
+}
+
+div.overlay-iframe,
+div.overlay-ajax {
+    width: 60%;
+    min-height: 100px;
+    z-index: 99; /* overlays should be above everything */
+}
+
+div.overlay-iframe {
+    height: 60%;
+}
+
+/* default close button positioned on upper right corner */
+    div.overlaybg div.close,
+    div.overlay div.close {
+    background-image: url(pb_close.png);
+    position: absolute;
+    left: -15px;
+    top: -15px;
+    cursor: pointer;
+    height: 30px;
+    width: 30px;
+}
+
+.pb-ajax, .pb-image {
+    white-space: normal;
+    border:0.5em solid #205C90;
+
+    -moz-border-radius:0.35em;
+    -webkit-border-radius:0.35em;
+    -moz-box-shadow:0 0 1em #888;
+    -webkit-box-shadow:0 0 1em #888;
+}
+
+.pb-ajax > * {
+    background-color: #fff;
+    padding: 1em;
+    white-space: normal;
+}
+
+.pb-ajax .documentActions {display:none}
+
+div.overlay div.close span {
+    display:block;
+    height:1px;
+    margin:-1px 0 0 -1px;
+    overflow:hidden;
+    padding:0;
+    width:1px;
+}
+
+div.overlay textarea { width: 100%; }
+
+dl.expandedInlineCollapsible dt.collapsibleHeader, dl.expandedBlockCollapsible dt.collapsibleHeader, dl.collapsedBlockCollapsible dt.collapsibleHeader {
+background-color: transparent;
+}
+
 /* @end */
